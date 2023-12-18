@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <style>
+      #color-display {
+        height: 300px;
+      }
+
+      .slider-box {
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        align-items: center;
+      }
+
+      .slider-box span {
+        text-align: right;
+      }
+
+      .slider {
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 15px;
+        border-radius: 5px;
+        background-color: #d7d7d7;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+      }
+
+      .slider:hover {
+        opacity: 1;
+      }
+
+      .sending-number {
+        display: none;
+      }
+    </style>
+    <title>딥러닝 기반 증명사진 제작 어플리케이션 개발</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <h1>딥러닝 기반 증명사진 제작 어플리케이션 개발</h1>
+        <h2>규격에 맞춰조</h2>
+      </div>
+      <div class="container">
+        <div class="result">
+          <div class="image_result">
+            <div id="color-display">
+              <img src="../static/crop/crop.png" alt="" />
+            </div>
+            <div class="slider-box">
+              <input
+                type="range"
+                min="0"
+                max="255"
+                value="255"
+                class="slider"
+                id="r-slider"
+              />
+              <span id="r-value">255</span>
+            </div>
+            <div class="slider-box">
+              <input
+                type="range"
+                min="0"
+                max="255"
+                value="255"
+                class="slider"
+                id="g-slider"
+              />
+              <span id="g-value">255</span>
+            </div>
+            <div class="slider-box">
+              <input
+                type="range"
+                min="0"
+                max="255"
+                value="255"
+                class="slider"
+                id="b-slider"
+              />
+              <span id="b-value">255</span>
+            </div>
+          </div>
+
+          <form action="/download" method="post" enctype="multipart/form-data">
+            <input
+              class="sending-number"
+              id="r-number"
+              type="number"
+              name="number1"
+              value="255"
+            />
+            <input
+              class="sending-number"
+              id="g-number"
+              type="number"
+              name="number2"
+              value="255"
+            />
+            <input
+              class="sending-number"
+              id="b-number"
+              type="number"
+              name="number3"
+              value="255"
+            />
+            <input type="submit" value="다운로드" />
+          </form>
+        </div>
+        <div class="return">
+          <a id="homepage-link" href="{{ url_for('index') }}">홈페이지</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const rSlider = document.getElementById("r-slider");
+      const gSlider = document.getElementById("g-slider");
+      const bSlider = document.getElementById("b-slider");
+
+      const colorDisplay = document.getElementById("color-display");
+
+      const rValue = document.getElementById("r-value");
+      const gValue = document.getElementById("g-value");
+      const bValue = document.getElementById("b-value");
+
+      const rNumber = document.getElementById("r-number");
+      const gNumber = document.getElementById("g-number");
+      const bNumber = document.getElementById("b-number");
+
+      function updateColor() {
+        const r = rSlider.value;
+        const g = gSlider.value;
+        const b = bSlider.value;
+        const color = `rgb(${r},${g},${b})`;
+        colorDisplay.style.backgroundColor = color;
+        rValue.innerHTML = r;
+        gValue.innerHTML = g;
+        bValue.innerHTML = b;
+        rNumber.value = r;
+        gNumber.value = g;
+        bNumber.value = b;
+      }
+
+      rSlider.addEventListener("input", updateColor);
+      gSlider.addEventListener("input", updateColor);
+      bSlider.addEventListener("input", updateColor);
+    </script>
+  </body>
+</html>

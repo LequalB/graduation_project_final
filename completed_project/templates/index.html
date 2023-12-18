@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>딥러닝 기반 증명사진 제작 어플리케이션 개발</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <h1>딥러닝 기반 증명사진 제작 어플리케이션 개발</h1>
+        <h2>규격에 맞춰조</h2>
+      </div>
+
+      <div class="container">
+        <div class="first">
+          <h3>이미지 업로드</h3>
+          <div class="image_example">
+            <img src="static/images/o1.jpg" alt="" />
+            <img src="static/images/r1.jpg" alt="" />
+          </div>
+          <form
+            action="/submit_upload"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <input type="file" name="file" accept=".jpg, .jpeg, .png" />
+            <input type="submit" value="업로드" />
+          </form>
+        </div>
+
+        <div class="second">
+          <h2>기술 소개</h2>
+          <div class="tech_info">
+            <div class="tech">
+              <h3>OPENPOSE</h3>
+              <div class="explain">
+                <span></span>
+                  OpenPose는 이미지와 비디오에서 실시간으로 여러 사람의
+                  키포인트를 감지하고 자세를 추정하기 위한 오픈 소스 소프트웨어
+                  라이브러리 및 프레임워크입니다. 카네기 멜론 대학 지각 컴퓨팅
+                  연구소에 의해 개발되었습니다. OpenPose는 컴퓨터 비전, 로봇
+                  엔지니어링 및 인간과 컴퓨터의 상호 작용 응용 분야에서 널리
+                  사용됩니다.</span
+                >
+              </div>
+            </div>
+            <div class="tech">
+              <h3>DIS</h3>
+              <div class="explain">
+                <span>
+                  기존 세그멘테이션 모델인 U2-Net은 작은 크기, 즉 SOD (320 x
+                  320)용으로 설계되었습니다. 따라서 큰 크기의 입력을
+                  처리하기에는 GPU 메모리 비용이 많이 들어갑니다. <br />
+                  따라서 DIS는 이를 해결하고자 첫번째 인코더 단계 이전에 1024 x
+                  1024 x 3의 형상을 갖는 입력 이미지를 입력 컨볼루션 레이어에
+                  통과시켜 특징 맵 f (1024 x 1024 x 64)로 변환하고, 이 특징 맵을
+                  기존 U2-Net에 직접 공급시켜 GPU 메모리 오버헤드를 75% 가량
+                  줄인 모델입니다.</span
+                >
+              </div>
+            </div>
+            <div class="tech">
+              <h3>FLASK</h3>
+              <div class="explain">
+                <span>
+                  Flask는 Python으로 웹 애플리케이션 및 웹 서비스를 구축하기
+                  위한 인기 있는 경량 웹 프레임워크입니다. <br /><br />
+                  <b>마이크로프레임워크</b>: <br />
+                  Flask는 많은 제약이나 사전 정의된 구조를 부과하지 않고 웹
+                  애플리케이션을 구축하기 위한 필수 구성 요소를 제공하기 때문에
+                  종종 "마이크로" 웹 프레임워크라고 합니다. 필요한 모든 것을
+                  포함하지는 않지만 필요에 따라 다양한 확장 및 라이브러리를
+                  사용하여 쉽게 확장할 수 있습니다.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="third"></div>
+      </div>
+    </div>
+  </body>
+</html>

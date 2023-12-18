@@ -1,0 +1,23 @@
+.fail-container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+}
+
+.image-box img {
+  height: 400px;
+}
+
+.image-explain {
+  margin: 0 20px;
+}
+
+.return {
+  display: grid;
+}
+
+#homepage-link {
+  justify-self: end;
+  text-decoration: none;
+}

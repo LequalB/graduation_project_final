@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>딥러닝 기반 증명사진 제작 어플리케이션 개발</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <h1>딥러닝 기반 증명사진 제작 어플리케이션 개발</h1>
+        <h2>규격에 맞춰조</h2>
+      </div>
+      <div class="container">
+        <div class="success">
+          <div class="image_crop">
+            <img src="../static/upload/original.jpg" alt="" />
+          </div>
+          <form
+            action="/submit_remove"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <input type="submit" value="배경 제거하기" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

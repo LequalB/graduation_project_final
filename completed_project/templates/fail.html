@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <link rel="stylesheet" href="../static/fail.css" />
+    <title>딥러닝 기반 증명사진 제작 어플리케이션 개발</title>
+    <style>
+      img {
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <h1>딥러닝 기반 증명사진 제작 어플리케이션 개발</h1>
+        <h2>규격에 맞춰조</h2>
+      </div>
+      <div class="fail-container">
+        <div class="image-box">
+          <img src="../static/upload/original.jpg" alt="" />
+        </div>
+        <div class="image-explain">
+          <!-- 조건문을 사용하여 다른 문자 출력 -->
+          {% if '1' in result_number %}
+          <p>눈썹이 보이지 않습니다.</p>
+          {% endif %} {% if '2' in result_number %}
+          <p>어깨가 기울어져 있습니다.</p>
+          {% endif %} {% if '3' in result_number %}
+          <p>고개가 올바르지 않습니다.</p>
+          {% endif %} {% if '4' in result_number %}
+          <p>눈을 제대로 뜨지 않았습니다.</p>
+          {% endif %} {% if '5' in result_number %}
+          <p>입이 열려 있거나 비뚤어져 있습니다.</p>
+          {% endif %} {% if '6' in result_number %}
+          <p>사람을 인식할 수 없습니다.</p>
+          {% endif %}
+        </div>
+        <div class="return">
+          <a id="homepage-link" href="{{ url_for('index') }}">홈페이지</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
